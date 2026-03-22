@@ -7,12 +7,123 @@ import img3 from "../assets/parade2.jpg";
 import aboutImage from "../assets/ambulance-1.jpg";
 import hero from "../assets/ambulance-1.jpg";
 
+// import { useState } from 'react';
+// import { Minus, Plus } from 'lucide-react';
+
+
+
+const ProgrammeAccordion = () => {
+const [openIndex, setOpenIndex] = useState(0);
+
+const accordion = 
+  [
+{
+title: "RESPECT",
+content: `
+At SJAK, Respect has been and will always be the basis of any communication or contact we make.
+`
+},
+
+{
+title: "Unselfishness",
+content: `
+At SJAK, we aim to share skills and knowledge to bolster a learned community of first aiders
+`
+},
+
+{
+title: "Excellence",
+content: `
+At SJAK, we put our heart, mind and soul into even out smallest of acts.
+`
+},
+
+{
+title: "Openness and Transparency",
+content: `
+We handle our work and resources in an open and transparent manner.
+`
+},
+
+{
+title: "Devotion",
+content: `
+Many of our members are long standing members rooted in deep devotion to the mission and vision of SJAK
+`
+},
+
+{
+title: "Togetherness",
+content: `
+We work together to continuously improve the quality and scale of training and care that St John provides around the world and to be the “gold standard” in everything we do. We are #OneStJohn.
+`
+},
+
+{
+title: "Diversity and Inclusiveness",
+content: `
+We are an equal opportunity creator for all. Welcome :)
+`
+},
+
+{
+title: "Faithfulness",
+content: `
+We are faithfull to the course.
+`
+},
+
+];
+
+
+
+const toggle = (index) => {
+setOpenIndex(openIndex === index ? null : index);
+};
+
+return (
+<div className="space-y-6">
+
+{accordion.map((item, index) => (
+<div
+key={index}
+className="border rounded-lg bg-white dark:bg-gray-900"
+>
+
+<button
+onClick={() => toggle(index)}
+className="w-full flex justify-between items-center p-6 text-left"
+>
+<h3 className="text-xl font-semibold">{item.title}</h3>
+
+{openIndex === index ? (
+<Minus size={20} />
+) : (
+<Plus size={20} />
+)}
+
+</button>
+
+{openIndex === index && (
+<div className="px-6 pb-8 text-gray-600 dark:text-gray-400">
+{item.content}
+</div>
+)}
+
+</div>
+))}
+
+</div>
+);
+};
+
+
 export default function About() {
 
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="bg-gray-50 dark:bg-dark_bg text-gray-800 dark:text-gray-200 py-20">
+    <div className="bg-gray-50 dark:bg-dark_bg text-gray-800 dark:text-gray-200">
 
         {/* HERO */}
               <div className="relative h-[420px] w-full">
@@ -30,11 +141,11 @@ export default function About() {
 
       {/* ================= SECTION 1 ================= */}
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 py-14">
 
         {/* Title */}
         <div className="text-center mb-10">
-          <span className="bg-sjak_secondary text-black px-6 py-3 text-3xl font-bold">
+          <span className="bg-sjak_secondary text-black px-6 py-3 text-3xl font-bold mt-5">
             About The Order of St John
           </span>
         </div>
@@ -160,7 +271,7 @@ export default function About() {
 
 
         {/* IMAGE CARDS */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
 
 
           {/* CARD 1 */}
@@ -171,8 +282,8 @@ export default function About() {
               className="w-full h-[260px] object-cover group-hover:scale-110 transition duration-500"
             />
 
-            <div className="absolute bottom-6 left-6 bg-sjak_secondary text-black px-6 py-3 font-semibold text-lg">
-              For the Faith
+            <div className="absolute bottom-6 left-6 bg-sjak_red text-black px-6 py-3 font-semibold text-lg">
+              Mission
             </div>
 
           </div>
@@ -187,30 +298,33 @@ export default function About() {
             />
 
             <div className="absolute bottom-6 left-6 bg-sjak_primary text-white px-6 py-3 font-semibold text-lg">
-              Service of Humanity
+              Vision
             </div>
 
           </div>
 
 
-          {/* CARD 3 */}
-          <div className="relative group overflow-hidden shadow-lg">
-
-            <img
-              src={img3}
-              className="w-full h-[260px] object-cover group-hover:scale-110 transition duration-500"
-            />
-
-            <div className="absolute bottom-6 left-6 bg-sjak_red text-white px-6 py-3 font-semibold text-lg">
-              Order of Chivalry
-            </div>
-
-          </div>
+        
 
 
         </div>
 
       </div>
+
+      <div className="container mx-auto px-6 py-20 mt-10 max-w-5xl border-4 border-sjak_secondary">
+
+        
+<h2 className="text-4xl text-center font-bold mb-6">
+Our values
+</h2>
+
+<p className="text-lg text-gray-600 text-center pb-10 dark:text-gray-400">
+Core values
+</p>
+
+<ProgrammeAccordion />
+
+</div>
 
     </div>
   );

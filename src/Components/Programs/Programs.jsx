@@ -24,49 +24,49 @@ const programs = [
     image: img1,
   },
   {
-    id: 1,
+    id: 3,
     title: "Mother and Child project",
     description:
       "Mother and child",
     image: img1,
   },
   {
-    id: 1,
+    id: 4,
     title: "OK Kids",
     description:
       "Equipping students with knowledge about disaster preparedness and life saving skills.",
     image: img1,
   },
   {
-    id: 2,
+    id: 5,
     title: "Maternal Health",
     description:
       "Motorcycle ambulances increasing access to healthcare in underserved areas.",
     image: img2,
   },
   {
-    id: 3,
+    id: 6,
     title: "Road Safety",
     description:
       "Training road users, police and bystanders in emergency first aid response.",
     image: img3,
   },
   {
-    id: 4,
+    id: 7,
     title: "Building Resilience",
     description:
       "Preparing communities for disasters and strengthening local response systems.",
     image: img4,
   },
   {
-    id: 5,
+    id: 8,
     title: "Disaster & Emergencies",
     description:
       "Emergency response support during disasters and humanitarian crises.",
     image: img5,
   },
   {
-    id: 6,
+    id: 9,
     title: "Caring for the Elderly",
     description:
       "Providing care support and improving wellbeing for older members of the community.",

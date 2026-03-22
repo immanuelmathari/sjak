@@ -4,10 +4,10 @@ import Courses from "../Components/Programs/Courses";
 const Training = () => {
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
             <Courses />
         </>
     )
 };
 
-export default Training
+export default Training;

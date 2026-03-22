@@ -6,133 +6,155 @@ import img3 from "../../assets/parade.jpg";
 import img4 from "../../assets/president.jpg";
 import img5 from "../../assets/training.jpg";
 import img6 from "../../assets/scouts.jpg";
+import { Link } from "react-router-dom";
 
 const services = [
   {
     title: "First Aid At Work",
-    description: "3 - 5 days    ",
+    description: "3 - 5 days",
     image: img1,
     button: "Request Quote",
+    link: "/what-we-do/training/first-aid-at-work",
   },
   {
     title: "First Aid Refresher",
     description: "1 - 2 days",
     image: img2,
     button: "Book a class",
+    link: "/what-we-do/training/first-aid-refresher",
   },
   {
     title: "Lifesaver International First Aid",
     description: "3 days",
     image: img3,
     button: "Book a class",
+    link: "/what-we-do/training/lifesaver-international-first-aid",
   },
   {
     title: "Emergency First Aid",
     description: "1 day",
     image: img4,
     button: "Book a class",
+    link: "/what-we-do/training/emergency-first-aid",
   },
   {
     title: "Pediatric First Aid",
     description: "1 Day",
     image: img5,
     button: "Book a class",
+    link: "/what-we-do/training/pediatric-first-aid",
   },
   {
     title: "Aviation First Aid",
     description: "5 Days",
     image: img6,
     button: "Book a class",
+    link: "/what-we-do/training/aviation-first-aid",
   },
   {
     title: "Wilderness First Aid",
     description: "3 - 5 Days",
     image: img5,
     button: "Book a class",
+    link: "/what-we-do/training/wilderness-first-aid",
   },
   {
     title: "First Aid Awareness",
     description: "Community based eg school or church",
     image: img6,
     button: "Book a trainer",
+    link: "/what-we-do/training/first-aid-awareness",
   },
   {
     title: "Fire Marshal",
     description: "2 - 3 Days",
     image: img6,
     button: "Book a class",
+    link: "/what-we-do/training/fire-marshal",
   },
   {
-    title: "Basic Fire safety",
+    title: "Basic Fire Safety",
     description: "Community based eg school or church",
     image: img6,
     button: "Request Quote",
+    link: "/what-we-do/training/basic-fire-safety",
   },
   {
     title: "Fire Safety Awareness",
     description: "Community based eg school or church",
     image: img6,
     button: "Book a trainer",
+    link: "/what-we-do/training/fire-safety-awareness",
   },
   {
     title: "Occupational Health and Safety",
     description: "4 - 5 days",
     image: img6,
     button: "Request Quote | Book a class",
+    link: "/what-we-do/training/occupational-safety-and-health",
   },
   {
     title: "Disaster Preparedness & Response",
     description: "5 days",
     image: img6,
     button: "Book a class",
+    link: "/what-we-do/training/disaster-preparedness-response",
   },
   {
     title: "HIV Testing & Services",
     description: "3 weeks",
     image: img6,
     button: "Book a class",
+    link: "/what-we-do/training/hiv-testing-services",
   },
   {
     title: "Emergency Medical Responder",
     description: "10 weeks",
     image: img6,
     button: "Book a class",
+    link: "/what-we-do/training/emergency-medical-responder",
   },
   {
     title: "Advanced Cardiovascular Life Support",
     description: "2 days",
     image: img6,
     button: "Book a class",
+    link: "/what-we-do/training/acls",
   },
   {
     title: "Basic Life Support BLS",
     description: "1 day",
     image: img6,
     button: "Book a class",
+    link: "/what-we-do/training/bls",
   },
   {
     title: "Basic Care Giver",
     description: "5 days",
     image: img6,
     button: "Book a class",
+    link: "/what-we-do/training/basic-caregiver",
   },
   {
     title: "EMT - Certificate",
     description: "2 years",
     image: img6,
     button: "Book an intake",
+    link: "/what-we-do/training/emt-certificate",
   },
   {
     title: "EMT - Diploma",
     description: "3 years",
     image: img6,
     button: "Book an intake",
+    link: "/what-we-do/training/emt-diploma",
   },
   {
     title: "EMT - Diploma Upgrade",
     description: "2 years",
     image: img6,
     button: "Book an intake",
+    link: "/what-we-do/training/emt-diploma-upgrade",
   },
 ];
 
@@ -142,7 +164,7 @@ const Courses = () => {
 
       <div className="container">
 
-                        <h1 className="text-center text-4xl mb-5 font-semibold underline bg-clip-text text-transparent bg-gradient-to-r from-green-700 to-yellow-400">WHAT WE DO</h1>
+                        <h1 className="text-center text-4xl mb-5 font-semibold underline bg-clip-text text-transparent bg-gradient-to-r from-green-700 to-yellow-400">Training Programmes</h1>
 
 
         {/* GRID */}
@@ -200,6 +222,7 @@ const Courses = () => {
             {service.description}
           </p>
 
+          <Link to={service.link} target="_blank">
           <button className="
             bg-black
             text-white
@@ -215,6 +238,8 @@ const Courses = () => {
           ">
             {service.button} +
           </button>
+          </Link>
+          
 
         </div>
 

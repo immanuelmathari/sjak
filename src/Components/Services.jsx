@@ -6,6 +6,7 @@ import img3 from "../assets/parade.jpg";
 import img4 from "../assets/president.jpg";
 import img5 from "../assets/training.jpg";
 import img6 from "../assets/scouts.jpg";
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -13,6 +14,7 @@ const services = [
     description: "- First Aid  -Fire Marshal  - Occupational Safety and health  -Basic Life Support BLS, ACLS, EMT etc",
     image: img1,
     button: "VIEW TRAINING",
+    link: "/what-we-do/training",
   },
   {
     title: "Join The Brigade",
@@ -122,6 +124,7 @@ const Services = () => {
             {service.description}
           </p>
 
+          <Link to={service.link} target="_blank">
           <button className="
             bg-black
             text-white
@@ -137,6 +140,8 @@ const Services = () => {
           ">
             {service.button} +
           </button>
+          </Link>
+          
 
         </div>
 

@@ -41,7 +41,8 @@ const [tenders, setTenders] = useState([]);
 
 useEffect(() => {
   // fetch("/api/tenders")
-  fetch("http://127.0.0.1:8000/api/tenders")
+  // fetch("http://127.0.0.1:8000/api/tenders")
+  fetch("https://api.stjohnkenya.org/tenders")
     .then(res => res.json())
     .then((data) => {
         setTenders(data);

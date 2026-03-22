@@ -4,47 +4,95 @@ import featured from "../../assets/Sakina-assist-a-middle-aged-woman-who-was-inj
 import { HiMenuAlt1 } from "react-icons/hi";
 import { HiMenuAlt3 } from "react-icons/hi";
 import Darkmode from "./Darkmode";
+import { Link } from "react-router-dom";
 
+// const Navlinks = [
+// {
+// name: "About St John Kenya",
+// children: [
+//   "About SJK, Mission & Vision",
+// "History, Legal Establishment & Governance",
+// "Meet The Team",
+// "Order of Chivalry",
+// "Regional Offices",
+// "St John Worldwide",
+// ],
+// image: featured
+// },
+// {
+// name: "Training Programms",
+// children: [
+// "First Aid Training",
+// "Disaster Response",
+// "Community Programs"
+// ],
+// image: "/training-preview.jpg"
+// },
+// {
+// name: "Where We Work",
+// children: [
+// "Nairobi",
+// "Coastal Region",
+// "Western Region"
+// ],
+// image: "/community-preview.jpg"
+// },
+// {
+// name: "Ways To Get Involved",
+// children: [
+// "Volunteer",
+// "Donate",
+// "Corporate Partnerships"
+// ],
+// image: "/volunteer-preview.jpg"
+// }
+// ];
 const Navlinks = [
 {
-name: "About St John Kenya",
-children: [
-  "About SJK, Mission & Vision",
-"History, Legal Establishment & Governance",
-"Meet The Team",
-"Order of Chivalry",
-"Regional Offices",
-"St John Worldwide",
-],
-image: featured
+  id: "home",
+  name: "Home",
+  path: "/", 
+  image: featured,
+  children: [
+    
+  ],
 },
 {
-name: "Training Programms",
-children: [
-"First Aid Training",
-"Disaster Response",
-"Community Programs"
-],
-image: "/training-preview.jpg"
+  id: "about",
+  name: "About St John Kenya",
+  // path: "/who-we-are", 
+  image: featured,
+  children: [
+    {
+      id: "about1",
+      name: "About SJK, Mission & Vision",
+      path: "/who-we-are/about-us-mission-and-vision",
+    },
+    {
+      id: "about2",
+      name: "History, Legal Establishment & Governance",
+      path: "/who-we-are/history-legal-establishment-and-governance",
+    },
+    {
+      id: "about3",
+      name: "Meet The Team",
+      path: "/who-we-are/team",
+    },
+  ],
 },
 {
-name: "Where We Work",
-children: [
-"Nairobi",
-"Coastal Region",
-"Western Region"
-],
-image: "/community-preview.jpg"
+  id: "training",
+  name: "Training Programmes",
+  // path: "/what-we-do/training",
+  image: "/training-preview.jpg",
+  children: [
+    {
+      id: "t1",
+      name: "See all training Courses",
+      path: "/what-we-do/training",
+    },
+  ],
 },
-{
-name: "Ways To Get Involved",
-children: [
-"Volunteer",
-"Donate",
-"Corporate Partnerships"
-],
-image: "/volunteer-preview.jpg"
-}
 ];
 
 const Navbar = () => {
@@ -63,6 +111,9 @@ const Navbar = () => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    const activeItem = Navlinks.find(item => item.id === activeMenu);
+
     return <header className="fixed top-0 left-0 w-full z-[9999] text-black dark:text-white duration-300">
         <div className="flex w-full text-white text-xs sm:text-sm md:text-base font-semibold">
 
@@ -118,16 +169,22 @@ const Navbar = () => {
                 <nav className="hidden md:block">
 <ul className="flex items-center gap-10">
 
-{Navlinks.map((item,index)=>(
+{Navlinks.map((item)=>(
 <li
-key={index}
-onMouseEnter={()=>setActiveMenu(index)}
+key={item.id}
+onMouseEnter={()=>setActiveMenu(item.id)}
 className="py-6"
 >
 
-<span className="cursor-pointer text-lg font-semibold hover:text-sjak_secondary">
+{/* <span className="cursor-pointer text-lg font-semibold hover:text-sjak_secondary">
 {item.name}
-</span>
+</span> */}
+<Link
+to={item.path}
+className="cursor-pointer text-lg font-semibold hover:text-sjak_secondary"
+>
+{item.name}
+</Link>
 
 </li>
 ))}
@@ -161,19 +218,20 @@ p-6
 <details>
 
 <summary className="cursor-pointer font-semibold">
-{item.name}
+<Link to={item.path}>{item.name}</Link>
 </summary>
 
 <ul className="ml-4 mt-3 space-y-2">
 
-{item.children?.map((child,i)=>(
-<li key={i}>
-<a
-href={child}
+{item.children.map((child)=>(
+<li key={child.id}>
+<Link
+to={child.path}
 className="block py-1 hover:text-sjak_secondary"
+onClick={() => setShowMenu(false)}
 >
 {child.name}
-</a>
+</Link>
 </li>
 ))}
 
@@ -183,12 +241,13 @@ className="block py-1 hover:text-sjak_secondary"
 
 ) : (
 
-<a
-href={item.link}
-className="block font-semibold"
+<Link
+to={child.path}
+className="block py-1 hover:text-sjak_secondary"
+onClick={() => setShowMenu(false)}
 >
-{item.name}
-</a>
+{child.name}
+</Link>
 
 )}
 
@@ -246,22 +305,21 @@ shadow-2xl
 <div>
 
 <h3 className="text-sjak_secondary font-bold mb-4">
-{Navlinks[activeMenu].name}
+{activeItem?.name}
 </h3>
 
 <ul className="space-y-3">
-
-{Navlinks[activeMenu].children.map((child,i)=>(
-<li key={i}>
-<a
-href="#"
-className="hover:text-sjak_secondary transition"
+{activeItem?.children.map((child)=>(
+<li key={child.id}>
+<Link
+to={child.path}
+className="block hover:text-sjak_secondary transition"
+onClick={() => setActiveMenu(null)}
 >
-{child}
-</a>
+{child.name}
+</Link>
 </li>
 ))}
-
 </ul>
 
 
@@ -296,9 +354,6 @@ Our Values
 Latest News
 </a>
 <a className="block hover:text-sjak_secondary">
-Get first aid and other training
-</a>
-<a className="block hover:text-sjak_secondary">
 Shop Supplies & Uniform
 </a>
 <a className="block hover:text-sjak_secondary">
@@ -310,16 +365,13 @@ Join St John local volunteers
 <a className="block hover:text-sjak_secondary">
 Start St John division eg school, organisation
 </a>
-<a className="block hover:text-sjak_secondary">
-Tenders
-</a>
+<Link to="/opportunities/tenders" className="block hover:text-sjak_secondary">
+Open Tenders
+</Link>
+
 <a className="block hover:text-sjak_secondary">
 Careers
 </a>
-<a className="block hover:text-sjak_secondary">
-Latest News
-</a>
-
 <a className="block hover:text-sjak_secondary">
 Contact Us
 </a>
@@ -349,7 +401,7 @@ Search
 <div className="relative">
 
 <img
-src={Navlinks[activeMenu].image}
+src={activeItem?.image}
 className="w-full h-[260px] object-cover"
 />
 
