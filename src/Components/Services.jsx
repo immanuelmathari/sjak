@@ -124,7 +124,9 @@ const Services = () => {
             {service.description}
           </p>
 
+{/* NOTE TODO 23.03.26 */}
           <Link to={service.link} target="_blank">
+          {/* <a> */}
           <button className="
             bg-black
             text-white
@@ -140,6 +142,7 @@ const Services = () => {
           ">
             {service.button} +
           </button>
+          {/* </a> */}
           </Link>
           
 

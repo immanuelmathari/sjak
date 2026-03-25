@@ -93,6 +93,19 @@ const Navlinks = [
     },
   ],
 },
+{
+  id: "Projects",
+  name: "Projects of St John Kenya",
+  // path: "/who-we-are", 
+  image: featured,
+  children: [
+    {
+      id: "emea",
+      name: "EMEA Project",
+      path: "/projects/emea-project-st-john-ambulance-kenya",
+    },
+  ],
+},
 ];
 
 const Navbar = () => {
@@ -141,12 +154,12 @@ const Navbar = () => {
 
   {/* Podcast CTA */}
   <div className="w-1/3 bg-green-700 py-2 flex items-center justify-center gap-2 text-center px-2">
-  <span className="hidden sm:inline">Listen to: </span>
+  <span className="hidden sm:inline">Follow our: </span>
     <a
       href="mailto:info@stjohnkenya.org?subject=Podcast%20Inquiry"
       className="underline hover:text-white/80 transition"
     >
-      Our Podcast
+      Social Media
     </a>
   </div>
 

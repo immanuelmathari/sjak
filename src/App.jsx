@@ -44,6 +44,8 @@ import BasicLifeSupport from './Components/Training/BasicLifeSupport';
 import BasicCareGiver from './Components/Training/BasicCareGiver';
 import EMTCertificate from './Components/Training/EMTCertificate';
 import EMTDiploma from './Components/Training/EMTDiploma';
+import EMEAProgramme from './Pages/programmes/EMEAProgramme';
+import Careers2 from './Components/Careers/Careers2';
 
 const App = () => {
   // return <main className="overflow-x-hidden bg-white dark:bg-black">
@@ -66,13 +68,16 @@ const App = () => {
   {/* <BasicLifeSupport /> */ }
   {/* <BasicCareGiver /> */ }
   {/* <EMTCertificate /> */ }
-  {/* <EMTDiploma /> */ }
-  {/* <Hero />
+    {/* <Training /> */}
+
+
+  {/* <EMTDiploma /> 
+  <EMEAProgramme /> 
+   <Hero />
     <WeAre />
     <BuildingResilience />
     <FirstAid />
     <Services />
-    <Training />
     <Programs />
     <Donate />
     <Events />
@@ -84,8 +89,9 @@ const App = () => {
     <RoadSafety />
     <History />
     <LegalEstablishment />
-    <Governance /> */}
-  // </main>
+    <Governance />  */}
+  {/* </main>  */}
+
   return (
     <Router>
       <Layout>
@@ -123,10 +129,12 @@ const App = () => {
             <Route path="/what-we-do/training/basic-caregiver" element={<BasicCareGiver />} />
             <Route path="/what-we-do/training/emt-certificate" element={<EMTCertificate />} />
             <Route path="/what-we-do/training/emt-diploma" element={<EMTDiploma />} />
+            <Route path="/projects/emea-project-st-john-ambulance-kenya" element={<EMEAProgramme />} />
             {/* <Route path="/what-we-do/training/emt-diploma-upgrade" element={<EMTDiplomaUpgrade />} /> */}
 
             {/* Others */}
             <Route path="/opportunities/tenders" element={<Tender />} />
+            <Route path="/opportunities/careers" element={<Careers2 />} />
           </Routes>
 
 
@@ -135,6 +143,7 @@ const App = () => {
       </Layout>
     </Router>
   )
+  
 };
 
 export default App;
