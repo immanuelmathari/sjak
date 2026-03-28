@@ -126,6 +126,24 @@ Volunteer
 <button className="bg-white text-black px-8 py-3 font-semibold">
 Donate
 </button>
+<Link
+  to="ways-to-get-involved/donate"
+  className="
+    block
+    w-full
+    bg-green-600
+    text-white
+    font-semibold
+    py-3
+    rounded
+    transition
+    group-hover:bg-green-700
+    group-hover:scale-105
+    text-center
+  "
+>
+  Donate Now
+</Link>
 
 </div>
 

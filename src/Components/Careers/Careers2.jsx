@@ -10,39 +10,30 @@ const Careers2 = () => {
 //   const API_BASE = "http://127.0.0.1:8000/api";
 
   useEffect(() => {
+    // console.log('hi');
   const fetchCareers = async () => {
     try {
       setLoading(true);
       setError("");
 
-      const url = `${API_BASE}/opportunities/careers`;
-      console.log("Fetching:", url);
-
-      const response = await fetch(url, {
+      const response = await fetch(`${API_BASE}/opportunities/careers`, {
         headers: {
           Accept: "application/json",
         },
       });
 
-      console.log("Status:", response.status);
-      console.log("OK:", response.ok);
-
-      const raw = await response.text();
-      console.log("Raw response:", raw);
-
       if (!response.ok) {
-        throw new Error(`Failed to fetch careers. Status: ${response.status}`);
+        throw new Error(`HTTP ${response.status}`);
       }
 
-      const parsed = JSON.parse(raw);
-const careersData = parsed.data || parsed;
+      const parsed = await response.json();
 
-setCareers(Array.isArray(careersData) ? careersData : []);
-      const data = JSON.parse(raw);
-    //   setCareers(Array.isArray(data) ? data : []);
+      console.log("API response:", parsed);
+
+      setCareers(Array.isArray(parsed) ? parsed : []);
     } catch (err) {
       console.error(err);
-      setError(err.message || "Something went wrong while fetching careers.");
+      setError(err.message || "Error fetching careers");
     } finally {
       setLoading(false);
     }

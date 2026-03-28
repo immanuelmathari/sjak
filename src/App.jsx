@@ -46,6 +46,8 @@ import EMTCertificate from './Components/Training/EMTCertificate';
 import EMTDiploma from './Components/Training/EMTDiploma';
 import EMEAProgramme from './Pages/programmes/EMEAProgramme';
 import Careers2 from './Components/Careers/Careers2';
+import DonateNow from './Components/DonateNow';
+import DonationThankYou from './Pages/DonationThankYou';
 
 const App = () => {
   // return <main className="overflow-x-hidden bg-white dark:bg-black">
@@ -69,6 +71,7 @@ const App = () => {
   {/* <BasicCareGiver /> */ }
   {/* <EMTCertificate /> */ }
     {/* <Training /> */}
+  // <DonateNow />
 
 
   {/* <EMTDiploma /> 
@@ -93,6 +96,8 @@ const App = () => {
   {/* </main>  */}
 
   return (
+      // <DonateNow />
+
     <Router>
       <Layout>
         <main className="overflow-x-hidden bg-white dark:bg-black">
@@ -135,6 +140,8 @@ const App = () => {
             {/* Others */}
             <Route path="/opportunities/tenders" element={<Tender />} />
             <Route path="/opportunities/careers" element={<Careers2 />} />
+            <Route path="/ways-to-get-involved/donate" element={<DonateNow />} />
+            <Route path="/donate/thank-you/:donationId" element={<DonationThankYou />} />
           </Routes>
 
 

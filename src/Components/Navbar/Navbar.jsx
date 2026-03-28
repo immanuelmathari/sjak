@@ -148,7 +148,7 @@ const Navbar = () => {
       href="tel:0797952810"
       className="font-bold underline hover:text-white/80 transition"
     >
-      0721 225 285
+      0800 722 540
     </a>
   </div>
 
